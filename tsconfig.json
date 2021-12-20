@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "lib": ["es7"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "rootDir": "./src",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noUnusedLocals": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strictNullChecks": true,
+    "sourceMap": true,
+    "target": "es6",
+    "outDir": "lib",
+    "baseUrl": "./src",
+    "allowJs": true,
+    "removeComments": true,
+    "forceConsistentCasingInFileNames": true,
+    "paths": {
+      "@providers/*": ["providers/*"],
+      "@api/*": ["api/*"],
+      "@config/*": ["config/*"],
+      "@core/*": ["core/*"],
+      "@shared/*": ["shared/*"],
+      "@domain/*": ["core/domain/*"],
+      "@entities/*": ["core/domain/entities/*"],
+      "@services/*": ["core/services/*"],
+      "@env/*": ["config/env/*"],
+      "@integrations/*": ["shared/integrations/*"],
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules/**/*", ".vscode/**/*"]
+}
+

@@ -1,0 +1,276 @@
+{
+	"info": {
+		"_postman_id": "4c597dcb-a4f1-4d4c-99d5-80805c794f3e",
+		"name": "Boilerplate",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Client",
+			"item": [
+				{
+					"name": "save client",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjMiLCJpYXQiOjE2MjU3NTMxNDc1NjB9.O1DCAfEFYjbA5PZgxHs9cjGnESu16Bk_jL_4pWaW6OI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"\",\r\n    \"email\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/api/clients",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get clients",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjMiLCJpYXQiOjE2MjU3NTMxNDc1NjB9.O1DCAfEFYjbA5PZgxHs9cjGnESu16Bk_jL_4pWaW6OI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3001/api/clients/",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"clients",
+								""
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "thomas@email.com",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get one client",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjMiLCJpYXQiOjE2MjU3NTMxNDc1NjB9.O1DCAfEFYjbA5PZgxHs9cjGnESu16Bk_jL_4pWaW6OI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3001/api/clients/<CLIENT_ID>",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"clients",
+								"<CLIENT_ID>"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update client",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjMiLCJpYXQiOjE2MjU3NTMxNDc1NjB9.O1DCAfEFYjbA5PZgxHs9cjGnESu16Bk_jL_4pWaW6OI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"\",\r\n    \"email\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/api/clients/<CLIENT_ID>",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"clients",
+								"<CLIENT_ID>"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove client",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjMiLCJpYXQiOjE2MjU3NTMxNDc1NjB9.O1DCAfEFYjbA5PZgxHs9cjGnESu16Bk_jL_4pWaW6OI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3001/api/clients/<CLIENT_ID>",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"clients",
+								"<CLIENT_ID>"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ClientList",
+			"item": [
+				{
+					"name": "add product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjMiLCJpYXQiOjE2MjU3NTMxNDc1NjB9.O1DCAfEFYjbA5PZgxHs9cjGnESu16Bk_jL_4pWaW6OI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\": \"2b505fab-d865-e164-345d-efbd4c2045b6\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/api/clients/<CLIENT_ID>/list",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"clients",
+								"<CLIENT_ID>",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get product list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjMiLCJpYXQiOjE2MjU3NTMxNDc1NjB9.O1DCAfEFYjbA5PZgxHs9cjGnESu16Bk_jL_4pWaW6OI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3001/api/clients/<CLIENT_ID>/list",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"clients",
+								"<CLIENT_ID>",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove product list",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjMiLCJpYXQiOjE2MjU3NTMxNDc1NjB9.O1DCAfEFYjbA5PZgxHs9cjGnESu16Bk_jL_4pWaW6OI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3001/api/clients/<CLIENT_ID>/list/<PRODUCT_ID>",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"clients",
+								"<CLIENT_ID>",
+								"list",
+								"<PRODUCT_ID>"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

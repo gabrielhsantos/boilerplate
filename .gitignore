@@ -1,0 +1,36 @@
+.merlin
+/node_modules
+build
+npm-debug.log
+yarn-error.log
+yarn.lock
+lib/
+.env
+*.bs.js
+storybook-static
+.bsb.lock
+.idea
+package-lock.json
+airflow/venv
+.vscode
+docker-compose.yml
+
+# Redis
+dump.rdb
+
+# SQL Server
+data/
+.system/
+log/
+.DS_Store
+
+# Mongo
+db/
+node_modules
+.vscode
+coverage
+package-lock.json
+yarn.lock
+lib
+logs
+.env
