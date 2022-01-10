@@ -1,6 +1,6 @@
 import { Service } from 'typedi'
 import { User } from '../entities/userModel'
-import { getRepository, Repository } from 'typeorm'
+import { getRepository } from 'typeorm'
 import { IUserRepository } from '@shared/interfaces/core/IUser'
 import { IAddressDTO } from '@shared/interfaces/_index'
 
@@ -18,22 +18,17 @@ export class UserRepository implements IUserRepository {
   updateAt?: Date | undefined
   address?: IAddressDTO[] | undefined
 
-  private repository: Repository<User>
-
-  bootstrap() {
-    this.repository = getRepository(User)
+  public saveUser(user: User): Promise<User> {
+    return getRepository(User).save(user)
   }
 
-  public async saveUser(user: User): Promise<User> {
-    return await this.repository.save(user)
-  }
-
-  public async findAll(): Promise<User[]> {
-    return await this.repository.find({})
+  public findAll(): Promise<User[]> {
+    return getRepository(User).find({})
+    // return await getRepository(User).find({})
   }
 
   public async findPatientAndAddress(id: string | number, needAddress: boolean): Promise<User | undefined> {
-    let response = this.repository.createQueryBuilder()
+    let response = getRepository(User).createQueryBuilder()
 
     response = needAddress
       ? response.innerJoin('user.address', 'address')
@@ -43,7 +38,7 @@ export class UserRepository implements IUserRepository {
   }
 
   public async findOneWithParams(filter: string): Promise<User | undefined> {
-    return await this.repository
+    return await getRepository(User)
       .createQueryBuilder()
       .where('(document = :document)', {
         document: `%${filter}%`,
@@ -54,7 +49,7 @@ export class UserRepository implements IUserRepository {
   public async findUserById(id: string | number): Promise<User | undefined> {
     const filter = typeof id === 'string' ? { uuid: id } : { id }
 
-    return await this.repository.findOne({
+    return await getRepository(User).findOne({
       where: filter,
     })
   }
@@ -62,13 +57,13 @@ export class UserRepository implements IUserRepository {
   public async updateUser(data: any, id: string | number): Promise<void> {
     const filter = typeof id === 'string' ? { uuid: id } : { id }
 
-    await this.repository.update(filter, data)
+    await getRepository(User).update(filter, data)
   }
 
   public async removeUser(data: any, id: string | number): Promise<void> {
     const filter = typeof id === 'string' ? { uuid: id } : { id }
 
-    await this.repository.update(filter, data)
+    await getRepository(User).update(filter, data)
   }
 }
 

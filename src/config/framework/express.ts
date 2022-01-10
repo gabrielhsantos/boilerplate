@@ -1,8 +1,10 @@
+// import '../tracer/datadog'
 import * as express from 'express'
 import * as cors from 'cors'
 import * as routesFile from '@api/routes/_index'
 import * as swaggerUi from 'swagger-ui-express'
 import swaggerDocs from '@config/docs/swaggerConfig'
+import { healthCheck } from '@api/routes/healthCheckRoute'
 import { errorHandler } from '@api/middlewares/errorHandler'
 import { json, text, raw, urlencoded } from 'body-parser'
 import { Route } from 'shared/enums/routes'
@@ -27,6 +29,7 @@ app
     }),
   )
   .use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
+  .use('/', healthCheck)
   .use(router)
   .all('*', (req, res, next: express.NextFunction) => {
     next({ errors: `Endpoint not found!` })

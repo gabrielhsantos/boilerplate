@@ -1,5 +1,5 @@
-// import { AddressRepository } from '@core/domain/typeOrm/repositories/addressRepository'
-import { AddressRepository } from '@core/domain/mongoose/repositories/addressRepository'
+import { AddressRepository } from '@core/domain/typeOrm/repositories/addressRepository'
+// import { AddressRepository } from '@core/domain/mongoose/repositories/addressRepository'
 import { AddressService } from '@core/services/address'
 import { CreateAddressUseCase } from './createAddressUseCase'
 import { RemoveAddressUseCase } from './removeAddressUseCase'

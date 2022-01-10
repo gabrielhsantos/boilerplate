@@ -1,5 +1,5 @@
 import { Requester } from '@config/_index'
-import { env } from '@env/envConfig'
+import { env } from '@env/env'
 import { IProviderProductResponse } from './IProviderProductResponse'
 import { AxiosResponse } from 'axios'
 

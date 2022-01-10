@@ -1,5 +1,5 @@
 import * as winston from 'winston'
-import { env } from '@env/envConfig'
+import { env } from '@env/env'
 
 const myCustomLevels = {
   levels: {

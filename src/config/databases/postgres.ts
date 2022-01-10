@@ -1,46 +1,40 @@
 import * as path from 'path'
 import { createConnection } from 'typeorm'
-import { env } from '@env/envConfig'
+import { env } from '@env/env'
 import { User } from '@core/domain/typeOrm/entities/userModel'
 import { Address } from '@core/domain/typeOrm/entities/addressModel'
 import { IDatabase } from '@shared/interfaces/config/IDatabase'
 import { Service } from 'typedi'
+import { dataLog, errorLog } from '@shared/utils/loggerFormat'
 
 const basePath = path.join(__dirname, '@core/infrastructure', 'migrations/**/*{.ts,.js}')
 
 @Service()
 class PostgresConnection implements IDatabase {
-  private isConnected: boolean
-
-  constructor() {
-    this.isConnected = false
-  }
-
   private async connection() {
-    const postgres = env.databases.postgres
+    try {
+      const postgres = env.databases.postgres
 
-    await createConnection({
-      type: 'postgres',
-      host: postgres.host,
-      username: postgres.username,
-      password: postgres.password,
-      database: postgres.database,
-      entities: [User, Address],
-      migrations: [basePath],
-      migrationsRun: true,
-    })
-
-    this.isConnected = true
+      await createConnection({
+        type: 'postgres',
+        port: postgres.port,
+        host: postgres.host,
+        username: postgres.username,
+        password: postgres.password,
+        database: postgres.database,
+        entities: [User, Address],
+        migrations: [basePath],
+        migrationsRun: true,
+      })
+    } catch (error) {
+      errorLog({ msg: 'Error while connection postgres', error })
+      process.exit(1)
+    }
   }
 
-  async connectDatabase() {
-    if (this.isConnected) {
-      return this.isConnected
-    }
-
+  async connectDatabase(): Promise<void> {
     await this.connection()
-
-    return this.isConnected
+    dataLog({ msg: 'Postgres connected' })
   }
 }
 

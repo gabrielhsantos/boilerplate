@@ -1,42 +1,35 @@
 import * as mongoose from 'mongoose'
-import { env } from '@env/envConfig'
+import { env } from '@env/env'
 import { IDatabase } from '@shared/interfaces/config/IDatabase'
 import { Service } from 'typedi'
+import { dataLog, errorLog } from '@shared/utils/loggerFormat'
 
 @Service()
 class MongoDBConnection implements IDatabase {
   private url: string
-  private isConnected: boolean
 
   constructor() {
     this.url = env.databases.mongoDB.url
-    this.isConnected = false
   }
 
   private async connection() {
-    mongoose
-      .connect(this.url, {
+    try {
+      await mongoose.connect(this.url, {
         dbName: env.databases.mongoDB.database,
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useFindAndModify: false,
         useCreateIndex: true,
       })
-      .catch(error => {
-        console.error(`Error while connection mongoose`, error)
-      })
-
-    this.isConnected = true
+    } catch (error) {
+      errorLog({ msg: 'Error while connection mongoose', error })
+      process.exit(1)
+    }
   }
 
-  async connectDatabase(): Promise<boolean> {
-    if (this.isConnected) {
-      return this.isConnected
-    }
-
+  async connectDatabase(): Promise<void> {
     await this.connection()
-
-    return this.isConnected
+    dataLog({ msg: 'MongoDB connected' })
   }
 }
 

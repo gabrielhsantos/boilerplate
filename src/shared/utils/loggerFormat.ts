@@ -39,7 +39,9 @@ const infoLog = async (params: IDataLog) => {
 const errorLog = async (params: IErrorLog) => {
   const { msg, error } = params
 
-  Logger.error(`[ErroLog] ${msg}`, error)
+  const errorMessage = `${msg}: ` || 'Error: '
+
+  Logger.error(errorMessage, error)
 }
 
 const debugLog = async (params: IDebugLog) => {

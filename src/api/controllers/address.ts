@@ -18,7 +18,7 @@ export class AddressController {
     try {
       await Service.updateAddress.updateAddress(req.body, req.params.userId)
 
-      return res.status(StatusCodes.NO_CONTENT).send()
+      return res.status(StatusCodes.NO_CONTENT).end()
     } catch (error) {
       next(error)
     }
@@ -28,7 +28,7 @@ export class AddressController {
     try {
       await Service.removeAddress.removeAddress(req.params.userId)
 
-      return res.status(StatusCodes.NO_CONTENT).send()
+      return res.status(StatusCodes.NO_CONTENT).end()
     } catch (error) {
       next(error)
     }
