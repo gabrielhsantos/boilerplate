@@ -2,7 +2,7 @@ import * as mongoose from 'mongoose'
 import { env } from '@env/env'
 import { IDatabase } from '@shared/interfaces/config/IDatabase'
 import { Service } from 'typedi'
-import { dataLog, errorLog } from '@shared/utils/loggerFormat'
+import { infoLog, errorLog } from '@shared/utils/loggerFormat'
 
 @Service()
 class MongoDBConnection implements IDatabase {
@@ -29,7 +29,7 @@ class MongoDBConnection implements IDatabase {
 
   async connectDatabase(): Promise<void> {
     await this.connection()
-    dataLog({ msg: 'MongoDB connected' })
+    infoLog({ msg: 'MongoDB connected' })
   }
 }
 

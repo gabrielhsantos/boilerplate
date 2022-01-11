@@ -1,12 +1,13 @@
 import { UserRepository } from '@core/domain/typeOrm/repositories/userRepository'
 // import { UserRepository } from '@domain/mongoose/repositories/userRepository'
 import { UserService } from '@core/services/user'
+import { Container } from 'typedi'
 import { CreateUserUseCase } from './createUserUseCase'
 import { FindUserUseCase } from './findUserUseCase'
 import { RemoveUserUseCase } from './removeUserUseCase'
 import { UpdateUserUseCase } from './updateUserUseCase'
 
-const userRepository = new UserRepository()
+const userRepository = Container.get(UserRepository)
 
 const createUserUseCase = new CreateUserUseCase(userRepository)
 const createUser = new UserService(createUserUseCase)

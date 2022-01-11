@@ -1,3 +1,4 @@
+import { IKafkaConfig } from './IBroker'
 import { IRequester } from './IRequesters'
 
 export interface IEnv {
@@ -21,6 +22,20 @@ export interface IEnv {
       logging: boolean
       timezone: string
       schema: string
+    }
+  }
+  kafka: {
+    config: IKafkaConfig
+    consumer: {
+      group: {
+        group: string
+      }
+      topic: {
+        consumer: string
+      }
+    }
+    producer: {
+      producer: string
     }
   }
   docs: {

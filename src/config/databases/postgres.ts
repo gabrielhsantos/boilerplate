@@ -5,7 +5,7 @@ import { User } from '@core/domain/typeOrm/entities/userModel'
 import { Address } from '@core/domain/typeOrm/entities/addressModel'
 import { IDatabase } from '@shared/interfaces/config/IDatabase'
 import { Service } from 'typedi'
-import { dataLog, errorLog } from '@shared/utils/loggerFormat'
+import { infoLog, errorLog } from '@shared/utils/loggerFormat'
 
 const basePath = path.join(__dirname, '@core/infrastructure', 'migrations/**/*{.ts,.js}')
 
@@ -34,7 +34,7 @@ class PostgresConnection implements IDatabase {
 
   async connectDatabase(): Promise<void> {
     await this.connection()
-    dataLog({ msg: 'Postgres connected' })
+    infoLog({ msg: 'Postgres connected' })
   }
 }
 

@@ -23,6 +23,28 @@ const env: IEnv = {
       schema: process.env.DB_POSTGRES_SCHEMA as string,
     },
   },
+  kafka: {
+    config: {
+      clientId: (process.env.KAFKA_CLIENT_ID as string) || 'boilerplate',
+      brokers: (process.env.KAFKA_BROKERS as string).split(','),
+      retry: {
+        initialRetryTime: parseInt(process.env.KAFKA_INITIAL_RETRY_TIME || '300'),
+        retries: parseInt(process.env.KAFKA_RETRIES || '10'),
+      },
+      log: process.env.KAFKA_LOGLEVEL === 'true',
+    },
+    consumer: {
+      group: {
+        group: process.env.KAFKA_CONSUMER_GROUP as string,
+      },
+      topic: {
+        consumer: process.env.KAFKA_CONSUMER as string,
+      },
+    },
+    producer: {
+      producer: process.env.KAFKA_PRODUCER as string,
+    },
+  },
   docs: {
     swagger: {
       schemes: process.env.SWAGGER_SCHEMES as string,
