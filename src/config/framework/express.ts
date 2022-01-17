@@ -4,10 +4,10 @@ import * as cors from 'cors'
 import * as routesFile from '@api/routes/_index'
 import * as swaggerUi from 'swagger-ui-express'
 import swaggerDocs from '@config/docs/swaggerConfig'
+import { Route } from '@shared/enums/routes'
 import { healthCheck } from '@api/routes/healthCheckRoute'
 import { errorHandler } from '@api/middlewares/errorHandler'
 import { json, text, raw, urlencoded } from 'body-parser'
-import { Route } from 'shared/enums/routes'
 
 const router = express.Router()
 Object.keys(routesFile).forEach(key => {

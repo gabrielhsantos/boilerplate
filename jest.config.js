@@ -1,4 +1,4 @@
-const { pathsToModuleNameMapper } = require('ts-jest/utils')
+const { pathsToModuleNameMapper } = require('ts-jest')
 const { compilerOptions } = require('./tsconfig')
 
 module.exports = {
@@ -6,15 +6,22 @@ module.exports = {
   clearMocks: true,
   collectCoverage: true,
   collectCoverageFrom: [
-    '<rootDir>/src/core/domain/useCases/**/*UseCase.ts'
+    'src/core/domain/useCases/**/*UseCase.ts'
   ],
-  coveragePathIgnorePatterns: ['index.ts'],
-  coverageDirectory: 'coverage',
-  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, { prefix: '<rootDir>/src' }),
-  preset: 'ts-jest',
+  coverageDirectory: '__tests__/coverage',
+  coverageReporters: [
+    'json',
+    'lcov'
+  ],
+  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, { prefix: '<rootDir>/src/' }),
+  preset: '@shelf/jest-mongodb',
+  setupFiles: ['<rootDir>__tests__/testSetup.ts'],
   testEnvironment: "node",
   testMatch: [
-    "**/src/providers/**/*.test.js?(x)",
-    "**/src/core/domain/useCases/**/*.test.js?(x)",
+    '<rootDir>__tests__/**/*.spec.ts'
   ],
+  transform: {
+    '^.+\\.ts$': 'ts-jest'
+  },
+  watchPathIgnorePatterns: ['globalConfig'],
 }

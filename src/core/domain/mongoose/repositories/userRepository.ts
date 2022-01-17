@@ -33,8 +33,8 @@ export class UserRepository implements IUserRepository {
     return await User.findOne(filter)
   }
 
-  public async findOneWithParams(id: string | number): Promise<IUserDTO | undefined> {
-    const filter = typeof id === 'string' ? { uuid: id } : { id }
+  public async findOneWithParams(params: object): Promise<IUserDTO | undefined> {
+    const filter = params
 
     return await User.findOne(filter)
   }
@@ -59,6 +59,10 @@ export class UserRepository implements IUserRepository {
     await User.updateOne(filter, {
       $set: { active: false },
     })
+  }
+
+  public async deleteMany(): Promise<void> {
+    await User.deleteMany()
   }
 }
 

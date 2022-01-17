@@ -1,5 +1,5 @@
-import { Container } from 'typedi'
 import { ItemRepository } from '@domain/mongoose/repositories/itemRepository'
+import { Container } from 'typedi'
 import { ItemService } from '@core/services/item'
 import { CreateItemUseCase } from './createItemUseCase'
 import { FindItemUseCase } from './findItemUseCase'

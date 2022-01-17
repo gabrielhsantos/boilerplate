@@ -27,7 +27,7 @@ export interface IUserRepository extends IUserDTO {
   saveUser?(user: User | IUserDTO): Promise<User | IUserDTO>
   findAll?(): Promise<User[] | IUserDTO[]>
   findPatientAndAddress?(id: string | number, needAddress: boolean): Promise<User | IUserDTO | undefined>
-  findOneWithParams(filter: string): Promise<User | IUserDTO | undefined>
+  findOneWithParams(params: object): Promise<User | IUserDTO | undefined>
   findUserById?(id: string | number): Promise<User | IUserDTO | undefined>
   updateUser?(data: any, id: string | number): Promise<void>
   removeUser?(data: any, id: string | number): Promise<void>

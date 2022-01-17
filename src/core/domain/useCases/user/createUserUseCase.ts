@@ -3,12 +3,14 @@ import { User } from '@domain/typeOrm/entities/userModel'
 import { ICreateUserInput } from '@shared/interfaces/_index'
 import { StatusCodes } from 'http-status-codes'
 import { setDate } from '@shared/utils/dateFormat'
+import { Service } from 'typedi'
 
+@Service()
 export class CreateUserUseCase implements IUserUseCase {
   constructor(private userRepository: IUserRepository) {}
 
   async saveUser(user: ICreateUserInput): Promise<User | IUserDTO> {
-    const userAlreadyExists = await this.userRepository.findOneWithParams!(user.document)
+    const userAlreadyExists = await this.userRepository.findOneWithParams!({ document: user.document })
 
     if (userAlreadyExists) {
       throw {

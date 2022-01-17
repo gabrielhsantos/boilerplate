@@ -18,7 +18,6 @@
     "removeComments": true,
     "forceConsistentCasingInFileNames": true,
     "paths": {
-      "@providers/*": ["providers/*"],
       "@api/*": ["api/*"],
       "@config/*": ["config/*"],
       "@core/*": ["core/*"],
@@ -27,10 +26,9 @@
       "@entities/*": ["core/domain/entities/*"],
       "@services/*": ["core/services/*"],
       "@env/*": ["config/env/*"],
-      "@integrations/*": ["shared/integrations/*"],
+      "@integrations/*": ["shared/integrations/*"]
     }
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "__test__"],
   "exclude": ["node_modules/**/*", ".vscode/**/*"]
 }
-

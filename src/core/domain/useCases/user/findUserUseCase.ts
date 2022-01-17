@@ -1,7 +1,9 @@
 import { IUserDTO, IUserRepository, IUserUseCase } from '@shared/interfaces/_index'
 import { User } from '@domain/typeOrm/entities/userModel'
 import { StatusCodes } from 'http-status-codes'
+import { Service } from 'typedi'
 
+@Service()
 export class FindUserUseCase implements IUserUseCase {
   constructor(private userRepository: IUserRepository) {}
 
@@ -23,7 +25,7 @@ export class FindUserUseCase implements IUserUseCase {
   }
 
   async findOneWithParams(filter: string): Promise<User | IUserDTO | undefined> {
-    const user = await this.userRepository.findOneWithParams!(filter)
+    const user = await this.userRepository.findUserById!(filter)
 
     if (!user) {
       throw {

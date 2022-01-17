@@ -1,5 +1,5 @@
-import { UserRepository } from '@core/domain/typeOrm/repositories/userRepository'
-// import { UserRepository } from '@domain/mongoose/repositories/userRepository'
+// import { UserRepository } from '@core/domain/typeOrm/repositories/userRepository'
+import { UserRepository } from '@domain/mongoose/repositories/userRepository'
 import { UserService } from '@core/services/user'
 import { Container } from 'typedi'
 import { CreateUserUseCase } from './createUserUseCase'

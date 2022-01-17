@@ -37,13 +37,8 @@ export class UserRepository implements IUserRepository {
     return response.where('uuid = :uuid', { uuid: id }).getOne()
   }
 
-  public async findOneWithParams(filter: string): Promise<User | undefined> {
-    return await getRepository(User)
-      .createQueryBuilder()
-      .where('(document = :document)', {
-        document: `%${filter}%`,
-      })
-      .getOne()
+  public async findOneWithParams(params: object): Promise<User | undefined> {
+    return await getRepository(User).createQueryBuilder().where('(document = :document)', params).getOne()
   }
 
   public async findUserById(id: string | number): Promise<User | undefined> {
