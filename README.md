@@ -6,7 +6,7 @@ Microsserviço desenvolvido como uma base para novos projetos.
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
 [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/).
-Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
+Além disto, é imprescindível ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
 ### 📋 Pré-requisitos
 
@@ -52,15 +52,19 @@ DB_POSTGRES_SCHEMA | public
 DB_POSTGRES | postgres
 DB_POSTGRES_HOST | localhost
 DB_POSTGRES_PASSWORD | postgres
-DB_MONGO_URL | mongodb+srv://USER:PASS@cluster0.h5mtb.mongodb.net
+DB_MONGO_URL | mongodb+srv://(USER):(PASS)@cluster0.h5mtb.mongodb.net
 DB_MONGO | mongo
+KAFKA_BROKERS | (IPs)
 KAFKA_CLIENT_ID | boilerplate
 KAFKA_INITIAL_RETRY_TIME | 300
 KAFKA_RETRIES | 10
 KAFKA_LOGLEVEL | false
 KAFKA_PRODUCER | MESSAGE_SENT
-KAFKA_CONSUMER | MESSAGE_RECEIVED
-KAFKA_CONSUMER_GROUP | MESSAGE_RECEIVED_GROUP
+KAFKA_CONSUMER | KAFKA_CONSUMER_BOILERPLATE
+KAFKA_CONSUMER_GROUP | KAFKA_CONSUMER_GROUP_BOILERPLATE
+DD_ENV | local
+DD_LOGS_INJECTION | true
+EXTERNAL_API | (API EXTERNA)
 
 ### 🎲 Rodando o Back End (servidor)
 
@@ -83,7 +87,7 @@ $ npm test
 ```
 
 >**Observação**:
-> O *Coverage* não está em 100%
+> O *Coverage* não está em 100% pois é apenas um modelo.
 
 ### 📦 Documentação
 
@@ -92,7 +96,5 @@ Um arquivo com extensão .json se encontra na pasta:
 
 O mesmo pode ser importado dentro do [Postman](https://www.postman.com/), para facilitar o acesso aos endpoints.
 
-Também é possível acessar a documentação da api pelo endpoint [/doc](http://localhost:3001/api/docs/) com o servidor rodando.
-
-
+Em breve será possível acessar a documentação da api pelo endpoint [/doc](http://localhost:3001/api/docs/) com o servidor rodando. Implementação do swagger em andamento
 

@@ -1,27 +1,27 @@
 {
 	"info": {
-		"_postman_id": "4c597dcb-a4f1-4d4c-99d5-80805c794f3e",
+		"_postman_id": "3c85065e-fceb-4708-bd0c-3569eb6662e7",
 		"name": "Boilerplate",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Client",
+			"name": "User",
 			"item": [
 				{
-					"name": "save client",
+					"name": "Save user",
 					"request": {
 						"method": "POST",
 						"header": [
 							{
-								"key": "authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjMiLCJpYXQiOjE2MjU3NTMxNDc1NjB9.O1DCAfEFYjbA5PZgxHs9cjGnESu16Bk_jL_4pWaW6OI",
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.IDA4bmSEJM4hKoT53s1hvrcPub1meMRt_Yjy1W5TSB8",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"\",\r\n    \"email\": \"\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Gabriel\",\r\n    \"document\": \"123456\",\r\n    \"birthdate\": \"1988-07-05\",\r\n    \"phone\": \"111111\",\r\n    \"email\": \"email@email.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -29,101 +29,86 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3001/api/clients",
+							"raw": "localhost:3001/api/v1/users",
 							"host": [
 								"localhost"
 							],
 							"port": "3001",
 							"path": [
 								"api",
-								"clients"
+								"v1",
+								"users"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "get clients",
+					"name": "Find users",
 					"request": {
-						"auth": {
-							"type": "noauth"
-						},
 						"method": "GET",
 						"header": [
 							{
-								"key": "authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjMiLCJpYXQiOjE2MjU3NTMxNDc1NjB9.O1DCAfEFYjbA5PZgxHs9cjGnESu16Bk_jL_4pWaW6OI",
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.IDA4bmSEJM4hKoT53s1hvrcPub1meMRt_Yjy1W5TSB8",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "localhost:3001/api/clients/",
+							"raw": "localhost:3001/api/v1/users",
 							"host": [
 								"localhost"
 							],
 							"port": "3001",
 							"path": [
 								"api",
-								"clients",
-								""
-							],
-							"query": [
-								{
-									"key": "email",
-									"value": "thomas@email.com",
-									"disabled": true
-								}
+								"v1",
+								"users"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "get one client",
+					"name": "Find user",
 					"request": {
-						"auth": {
-							"type": "noauth"
-						},
 						"method": "GET",
 						"header": [
 							{
-								"key": "authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjMiLCJpYXQiOjE2MjU3NTMxNDc1NjB9.O1DCAfEFYjbA5PZgxHs9cjGnESu16Bk_jL_4pWaW6OI",
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.IDA4bmSEJM4hKoT53s1hvrcPub1meMRt_Yjy1W5TSB8",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "localhost:3001/api/clients/<CLIENT_ID>",
+							"raw": "localhost:3001/api/users/4233f864-4072-4c9e-a9d8-226e5acde299",
 							"host": [
 								"localhost"
 							],
 							"port": "3001",
 							"path": [
 								"api",
-								"clients",
-								"<CLIENT_ID>"
+								"users",
+								"4233f864-4072-4c9e-a9d8-226e5acde299"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "update client",
+					"name": "Update user",
 					"request": {
-						"auth": {
-							"type": "noauth"
-						},
 						"method": "PATCH",
 						"header": [
 							{
-								"key": "authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjMiLCJpYXQiOjE2MjU3NTMxNDc1NjB9.O1DCAfEFYjbA5PZgxHs9cjGnESu16Bk_jL_4pWaW6OI",
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.IDA4bmSEJM4hKoT53s1hvrcPub1meMRt_Yjy1W5TSB8",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"\",\r\n    \"email\": \"\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Gabriel\",\r\n    \"document\": \"123456\",\r\n    \"birthdate\": \"1988-07-05\",\r\n    \"phone\": \"111111\",\r\n    \"email\": \"email@email.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -131,44 +116,41 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3001/api/clients/<CLIENT_ID>",
+							"raw": "localhost:3001/api/users/4233f864-4072-4c9e-a9d8-226e5acde299",
 							"host": [
 								"localhost"
 							],
 							"port": "3001",
 							"path": [
 								"api",
-								"clients",
-								"<CLIENT_ID>"
+								"users",
+								"4233f864-4072-4c9e-a9d8-226e5acde299"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "remove client",
+					"name": "Delete user",
 					"request": {
-						"auth": {
-							"type": "noauth"
-						},
 						"method": "DELETE",
 						"header": [
 							{
-								"key": "authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjMiLCJpYXQiOjE2MjU3NTMxNDc1NjB9.O1DCAfEFYjbA5PZgxHs9cjGnESu16Bk_jL_4pWaW6OI",
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.IDA4bmSEJM4hKoT53s1hvrcPub1meMRt_Yjy1W5TSB8",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "localhost:3001/api/clients/<CLIENT_ID>",
+							"raw": "localhost:3001/api/users/4233f864-4072-4c9e-a9d8-226e5acde299",
 							"host": [
 								"localhost"
 							],
 							"port": "3001",
 							"path": [
 								"api",
-								"clients",
-								"<CLIENT_ID>"
+								"users",
+								"4233f864-4072-4c9e-a9d8-226e5acde299"
 							]
 						}
 					},
@@ -177,22 +159,20 @@
 			]
 		},
 		{
-			"name": "ClientList",
+			"name": "Address",
+			"item": []
+		},
+		{
+			"name": "menu",
 			"item": [
 				{
-					"name": "add product",
+					"name": "save item",
 					"request": {
 						"method": "POST",
-						"header": [
-							{
-								"key": "authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjMiLCJpYXQiOjE2MjU3NTMxNDc1NjB9.O1DCAfEFYjbA5PZgxHs9cjGnESu16Bk_jL_4pWaW6OI",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"productId\": \"2b505fab-d865-e164-345d-efbd4c2045b6\"\r\n}",
+							"raw": "{\r\n    \"name\": \"LCD\",\r\n    \"realatedId\": 2\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -200,73 +180,51 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3001/api/clients/<CLIENT_ID>/list",
+							"raw": "localhost:3001/api/v1/menu",
 							"host": [
 								"localhost"
 							],
 							"port": "3001",
 							"path": [
 								"api",
-								"clients",
-								"<CLIENT_ID>",
-								"list"
+								"v1",
+								"menu"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "get product list",
+					"name": "find itens list",
 					"request": {
 						"method": "GET",
-						"header": [
-							{
-								"key": "authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjMiLCJpYXQiOjE2MjU3NTMxNDc1NjB9.O1DCAfEFYjbA5PZgxHs9cjGnESu16Bk_jL_4pWaW6OI",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"url": {
-							"raw": "localhost:3001/api/clients/<CLIENT_ID>/list",
+							"raw": "localhost:3001/api/v1/menu",
 							"host": [
 								"localhost"
 							],
 							"port": "3001",
 							"path": [
 								"api",
-								"clients",
-								"<CLIENT_ID>",
-								"list"
+								"v1",
+								"menu"
 							]
 						}
 					},
 					"response": []
-				},
+				}
+			]
+		},
+		{
+			"name": "HealthCheck",
+			"item": [
 				{
-					"name": "remove product list",
+					"name": "live",
 					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjMiLCJpYXQiOjE2MjU3NTMxNDc1NjB9.O1DCAfEFYjbA5PZgxHs9cjGnESu16Bk_jL_4pWaW6OI",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "localhost:3001/api/clients/<CLIENT_ID>/list/<PRODUCT_ID>",
-							"host": [
-								"localhost"
-							],
-							"port": "3001",
-							"path": [
-								"api",
-								"clients",
-								"<CLIENT_ID>",
-								"list",
-								"<PRODUCT_ID>"
-							]
-						}
+						"method": "GET",
+						"header": [],
+						"url": null
 					},
 					"response": []
 				}
