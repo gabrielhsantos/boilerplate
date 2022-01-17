@@ -16,8 +16,8 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [TypeScript](https://www.typescriptlang.org/)
 - [PostgreSQL](https://www.postgresql.org/download/)
 - [MongoDB](https://www.mongodb.com/try/download/community)
-- [Serverless Framework](https://www.serverless.com/framework/docs/getting-started)
 - [Kafka](https://kafka.apache.org/downloads)
+- [Datadog](https://www.datadoghq.com/)
 
 ### 🔧 Instalação
 
