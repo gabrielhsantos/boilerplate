@@ -8,25 +8,28 @@
     "migration:create": "ts-node ./node_modules/typeorm/cli.js migration:create -n",
     "migration:run": "ts-node ./node_modules/typeorm/cli.js migration:run",
     "migration:revert": "ts-node ./node_modules/typeorm/cli.js migration:revert",
-    "build": "tsc --project tsconfig.json",
+    "build": "tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src -o ./lib",
     "start": "node -r tsconfig-paths/register -r ts-node/register ./src/api/server.ts",
-    "start:local": "nodemon src/api/server.ts",
+    "start:dev": "nodemon src/api/server.ts",
     "ts:watch": "tsc --watch",
     "lint:staged": "lint-staged",
-    "fest": "cross-env NODE_ENV=test jest --detectOpenHandles --forceExit",
+    "build:docker:image": "docker build -t boilerplate-image .",
+    "remove:docker:image": "docker image rm boilerplate-image",
+    "start:docker:container": "docker run -p 4001:3001 -d --name boilerplate-container boilerplate-image",
+    "remove:docker:container": "docker rm boilerplate-container -f",
     "test": "jest --runInBand"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gabrielhsantos/productListAPI.git"
+    "url": "git+https://github.com/gabrielhsantos/boilerplate.git"
   },
   "keywords": [],
   "author": "Gabriel Santos",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/gabrielhsantos/productListAPI/issues"
+    "url": "https://github.com/gabrielhsantos/boilerplate/issues"
   },
-  "homepage": "https://github.com/gabrielhsantos/productListAPI#readme",
+  "homepage": "https://github.com/gabrielhsantos/boilerplate#readme",
   "dependencies": {
     "@types/mongoose": "^5.11.97",
     "axios": "^0.21.1",
@@ -73,6 +76,7 @@
     "ts-jest": "^27.1.2",
     "ts-node-dev": "^1.1.6",
     "tsconfig-paths": "^3.9.0",
+    "tscpaths": "0.0.9",
     "winston": "^3.3.3"
   },
   "lint-staged": {

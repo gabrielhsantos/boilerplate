@@ -13,7 +13,6 @@ storybook-static
 package-lock.json
 airflow/venv
 .vscode
-docker-compose.yml
 globalConfig.json
 
 # Redis

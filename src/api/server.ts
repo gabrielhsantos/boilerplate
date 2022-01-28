@@ -4,14 +4,15 @@ dotenv.config({
   path: process.env.NODE_ENV === 'test' ? '.env.test' : '.env',
 })
 import { Container } from 'typedi'
-import { app, env, MongoDBConnection, PostgresConnection } from '@config/_index'
+// import { app, env, MongoDBConnection, PostgresConnection } from '@config/_index'
+import { app, env, MongoDBConnection } from '@config/_index'
 import { errorLog, infoLog } from '@shared/utils/_index'
 import { KafkaConnect } from '@shared/broker/broker-integration'
 
 const connect = async () => {
   await Container.get(MongoDBConnection).connectDatabase()
 
-  await Container.get(PostgresConnection).connectDatabase()
+  // await Container.get(PostgresConnection).connectDatabase()
 
   await Container.get(KafkaConnect).connectBroker()
 }
