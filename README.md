@@ -97,4 +97,3 @@ Um arquivo com extensão .json se encontra na pasta:
 O mesmo pode ser importado dentro do [Postman](https://www.postman.com/), para facilitar o acesso aos endpoints.
 
 Em breve será possível acessar a documentação da api pelo endpoint [/doc](http://localhost:3001/api/docs/) com o servidor rodando. Implementação do swagger em andamento.
-
