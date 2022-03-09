@@ -26,7 +26,7 @@ const env: IEnv = {
   kafka: {
     config: {
       clientId: (process.env.KAFKA_CLIENT_ID as string) || 'boilerplate',
-      brokers: (process.env.KAFKA_BROKERS as string).split(','),
+      brokers: process.env.KAFKA_BROKERS ? (process.env.KAFKA_BROKERS as string).split(',') : [],
       retry: {
         initialRetryTime: parseInt(process.env.KAFKA_INITIAL_RETRY_TIME || '300'),
         retries: parseInt(process.env.KAFKA_RETRIES || '10'),
